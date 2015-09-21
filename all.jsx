@@ -4,17 +4,17 @@ import ClipPath from './ClipPath';
 import Draggable from './Draggable';
 import G from './G';
 import Hoverable from './Hoverable';
+import Json from './Json';
 import Line from './Line';
+import LoBox from './LoBox';
+import LoCol from './LoCol';
+import LoMargins from './LoMargins';
+import LoRow from './LoRow';
 import Path from './Path';
 import PlotRegion from './PlotRegion';
 import Rect from './Rect';
-import Text from './Text';
-import LoRow from './LoRow';
-import LoCol from './LoCol';
-import LoBox from './LoBox';
-import LoMargins from './LoMargins';
 import Svg from './Svg';
-
+import Text from './Text';
 
 export default {
   Axis,
@@ -23,14 +23,15 @@ export default {
   Draggable,
   G,
   Hoverable,
+  Json,
   Line,
-  LoRow,
-  LoCol,
   LoBox,
+  LoCol,
   LoMargins,
+  LoRow,
   Path,
   PlotRegion,
   Rect,
-  Text,
   Svg,
+  Text,
 };
