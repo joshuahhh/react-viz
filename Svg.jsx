@@ -7,8 +7,8 @@ var Svg = React.createClass({
 
   getInitialState() {
     return {
-      width: 100,
-      height: 100,
+      width: 0,
+      height: 0,
     };
   },
 
@@ -17,7 +17,8 @@ var Svg = React.createClass({
   },
 
   getLoSize() {
-    return undefined;
+    const {width, height} = this.state;
+    return {width, height};
   },
 
   render() {
