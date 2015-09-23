@@ -23,18 +23,20 @@ var PlotRegion = React.createClass({
     const {xDomain, yDomain, xRange, yRange} = this.props;
     const {loWidth, loHeight} = this.getLoSize();
 
+    const xDomainF = xDomain || (loWidth && [0, loWidth]);
+    const yDomainF = yDomain || (loHeight && [0, loHeight]);
     const xRangeF = xRange || (loWidth && [0, loWidth]);
     const yRangeF = yRange || (loHeight && [0, loHeight]);
 
     // TODO: check valid inputs!
-    if (xDomain && xRangeF) {
-      xScale = d3.scale.linear().domain(xDomain).range(xRangeF);
+    if (xDomainF && xRangeF) {
+      xScale = d3.scale.linear().domain(xDomainF).range(xRangeF);
     } else {
       // TODO: TERRIBLE
       xScale = d3.scale.linear().domain([0, 1]).range([0, 1]);
     }
-    if (yDomain && yRangeF) {
-      yScale = d3.scale.linear().domain(yDomain).range(yRangeF);
+    if (yDomainF && yRangeF) {
+      yScale = d3.scale.linear().domain(yDomainF).range(yRangeF);
     } else {
       // TODO: TERRIBLE
       yScale = d3.scale.linear().domain([0, 1]).range([0, 1]);

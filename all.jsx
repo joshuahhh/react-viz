@@ -1,3 +1,4 @@
+import AnimationLoop from './AnimationLoop';
 import Axis from './Axis';
 import Circle from './Circle';
 import ClipPath from './ClipPath';
@@ -17,6 +18,7 @@ import Svg from './Svg';
 import Text from './Text';
 
 export default {
+  AnimationLoop,
   Axis,
   Circle,
   ClipPath,
