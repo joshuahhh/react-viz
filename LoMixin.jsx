@@ -6,6 +6,7 @@ import _ from 'underscore';
 var LoMixin = {
   contextTypes: {
     reportLoSize: React.PropTypes.func,
+    loChildNum: React.PropTypes.number,
   },
 
   childContextTypes: {
@@ -16,7 +17,7 @@ var LoMixin = {
 
   getChildContext() {
     const {reportedLoWidth, reportedLoHeight} = this.state;
-    
+
     return {
       reportLoSize: this.receiveLoSizeFromChild,
       loWidth: reportedLoWidth,
@@ -42,8 +43,7 @@ var LoMixin = {
   updateLo() {
     // console.log('updateLo', this.constructor.displayName);
     const {reportedLoWidth, reportedLoHeight} = this.state;
-    const {loChildNum} = this.props;
-    const {reportLoSize} = this.context;
+    const {reportLoSize, loChildNum} = this.context;
 
     const size = this.getLoSize();
 
