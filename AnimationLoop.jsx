@@ -3,13 +3,12 @@ import React from 'react';
 var AnimationLoop = React.createClass({
   getInitialState() {
     return {
-      // TODO: delta
-      // lastStepTime: undefined,
+      lastStepTime: undefined,
     };
   },
 
   render() {
-    return <g>{this.props.children}</g>;
+    return <noscript>{this.props.children}</noscript>;
   },
 
   componentDidMount() {
@@ -17,11 +16,18 @@ var AnimationLoop = React.createClass({
   },
 
   componentWillUnmount() {
-    window.cancelAnimationFrame(this.loop);
+    window.cancelAnimationFrame(this.requestId);
   },
 
   loop() {
-    this.props.step();
+    const {targetFps} = this.props;
+    const {lastStepTime} = this.state;
+    const thisStepTime = Date.now();
+    const elapsed = thisStepTime - lastStepTime;
+    if (!lastStepTime || !targetFps || elapsed > 1000 / targetFps) {
+      this.props.step(lastStepTime && elapsed);
+      this.setState({lastStepTime: thisStepTime});
+    }
     this.requestId = window.requestAnimationFrame(this.loop);
   }
 });
