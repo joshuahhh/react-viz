@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'underscore';
 
 import LoMixin from './LoMixin';
+import LoChild from './LoChild';
 
 var LoCol = React.createClass({
   mixins: [LoMixin],
@@ -59,7 +60,9 @@ var LoCol = React.createClass({
         right: width - childWidths[i]
       }[hAlign] || 0;
       childrenToRender.push(
-        <g key={i} transform={`translate(${xOffset}, ${yOffset})`}>{React.cloneElement(child, {loChildNum: i})}</g>
+        <LoChild key={i} loChildNum={i} transform={`translate(${xOffset}, ${yOffset})`}>
+          {child}
+        </LoChild>
       );
       yOffset += childHeights[i] || 0;
     });

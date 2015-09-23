@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'underscore';
 
 import LoMixin from './LoMixin';
+import LoChild from './LoChild';
 
 var LoRow = React.createClass({
   mixins: [LoMixin],
@@ -59,37 +60,13 @@ var LoRow = React.createClass({
         bottom: height - childHeights[i]
       }[vAlign] || 0;
       childrenToRender.push(
-        <LoRowCell key={i} loChildNum={i} transform={`translate(${xOffset}, ${yOffset})`}>
+        <LoChild key={i} loChildNum={i} transform={`translate(${xOffset}, ${yOffset})`}>
           {child}
-        </LoRowCell>
+        </LoChild>
       );
       xOffset += childWidths[i] || 0;
     });
     return <g>{childrenToRender}</g>;
-  },
-});
-
-// Does two things:
-//  * transforms child (could have been done inline)
-//  * provides loChildNum as context (couldn't have been done inline)
-// TODO: make this generically usable
-var LoRowCell = React.createClass({
-  propTypes: {
-    transform: React.PropTypes.string.isRequired,
-    loChildNum: React.PropTypes.number.isRequired,
-  },
-
-  childContextTypes: {
-    loChildNum: React.PropTypes.number.isRequired,
-  },
-
-  getChildContext() {
-    return { loChildNum: this.props.loChildNum };
-  },
-
-  render() {
-    const {transform, children} = this.props;
-    return <g transform={transform}>{children}</g>;
   },
 });
 
