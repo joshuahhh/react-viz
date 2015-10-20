@@ -15,7 +15,7 @@ var Draggable = React.createClass({
   },
 
   render() {
-    return <g ref='g' style={{cursor: 'pointer'}}>{this.props.children}</g>;
+    return <g ref='g' style={{cursor: 'move'}}>{this.props.children}</g>;
   },
 
   componentDidMount() {
@@ -32,6 +32,7 @@ var Draggable = React.createClass({
     var dragBehavior = d3.behavior.drag()
       .on('dragstart', () => {
         this.props.onDragStart && this.props.onDragStart();
+        document.body.style.cursor = 'move';
       })
       .on('drag', () => {
         if (!this.state.isDragging) {
@@ -66,6 +67,7 @@ var Draggable = React.createClass({
         this.props.onDrag && this.props.onDrag(d3.event);
       })
       .on('dragend', () => {
+        document.body.style.cursor = '';
         this.props.onDragEnd && this.props.onDragEnd();
         this.setState({
           isDragging: false,
