@@ -11,7 +11,6 @@ export {default as LoBox} from './LoBox';
 export {default as LoCol} from './LoCol';
 export {default as LoMargins} from './LoMargins';
 export {default as LoRow} from './LoRow';
-export {default as Mask} from './Mask';
 export {default as Path} from './Path';
 export {default as PlotRegion} from './PlotRegion';
 export {default as Rect} from './Rect';

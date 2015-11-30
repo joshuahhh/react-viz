@@ -8,7 +8,7 @@ var AnimationLoop = React.createClass({
   },
 
   render() {
-    return <noscript>{this.props.children}</noscript>;
+    return <g>{this.props.children}</g>;
   },
 
   componentDidMount() {
