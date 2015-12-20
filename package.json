@@ -1,0 +1,35 @@
+{
+  "name": "react-viz",
+  "description": "Components for making SVG visualizations with React and D3",
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshuahhh/react-viz"
+  },
+  "keywords": [
+    "react",
+    "svg",
+    "d3",
+    "visualization"
+  ],
+  "author": "Joshua Horowitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshuahhh/react-viz/issues"
+  },
+  "homepage": "https://github.com/joshuahhh/react-vi",
+  "dependencies": {
+    "d3": "^3.5.12",
+    "underscore": "^1.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=0.13.0-rc2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1"
+  },
+  "version": "0.0.1"
+}
