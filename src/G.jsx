@@ -27,13 +27,20 @@ var G = React.createClass({
   },
 
   render() {
-    const {x, xD, y, yD, rotate} = this.props;
+    const {x, xD, y, yD, rotate, scale} = this.props;
     const otherProps = _.omit(this.props, ['x', 'xD', 'y', 'yD', 'rotate']);
     const {clipPathId} = this.state;
 
     const xF = this.useRawAndOrXScale(x, xD);
     const yF = this.useRawAndOrYScale(y, yD);
-    const transform = `translate(${xF}, ${yF})` + (rotate ? ` rotate(${rotate})` : '');
+    const translateTransform = `translate(${xF}, ${yF})`;
+
+    const rotateTransform = rotate ? ` rotate(${rotate})` : '';
+
+    const scaleArguments = scale && (_.isArray(scale) ? scale.join(', ') : scale)
+    const scaleTransform = scale ? ` scale(${scaleArguments})` : '';
+
+    const transform = translateTransform + rotateTransform + scaleTransform;
 
     const clipPath = clipPathId ? `url(#${clipPathId})` : '';
 
