@@ -2,6 +2,10 @@
   "name": "react-viz",
   "description": "Components for making SVG visualizations with React and D3",
   "main": "build/index.js",
+  "scripts": {
+    "build": "mkdir -p build && ./node_modules/.bin/babel --presets es2015,react src --out-dir build",
+    "prepublish": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/joshuahhh/react-viz"
@@ -17,7 +21,10 @@
   "bugs": {
     "url": "https://github.com/joshuahhh/react-viz/issues"
   },
-  "homepage": "https://github.com/joshuahhh/react-vi",
+  "homepage": "https://github.com/joshuahhh/react-viz",
+  "files": [
+    "build/*"
+  ],
   "dependencies": {
     "d3": "^3.5.12",
     "underscore": "^1.8.3"
@@ -26,10 +33,9 @@
     "react": ">=0.13.0-rc2"
   },
   "devDependencies": {
+    "babel-cli": "^6.3.17",
     "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
-    "babelify": "^7.2.0",
-    "browserify": "^12.0.1"
+    "babel-preset-react": "^6.1.18"
   },
   "version": "0.0.1"
 }
